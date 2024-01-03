@@ -34,7 +34,7 @@ def login_user(request):
     data = {"userName": username}
     if user is not None:
         # If the user is valid,
-        call the login method to log in the current user
+        # call the login method to log in the current user
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
