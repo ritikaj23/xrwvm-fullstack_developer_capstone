@@ -33,7 +33,8 @@ def login_user(request):
     user = authenticate(username=username, password=password)
     data = {"userName": username}
     if user is not None:
-        # If the user is valid, call the login method to log in the current user
+        # If the user is valid,
+        call the login method to log in the current user
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
@@ -62,7 +63,7 @@ def registration(request):
         # Check if the user already exists
         User.objects.get(username=username)
         username_exist = True
-    except:
+    except Exception as e:
         # If not, simply log that this is a new user
         logger.debug("{} is a new user".format(username))
     finally:
